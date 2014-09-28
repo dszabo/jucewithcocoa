@@ -17,7 +17,6 @@
 		310150014BC3351BAC733834 /* juce_audio_basics.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA082507661138E59F5C8449 /* juce_audio_basics.mm */; };
 		45B3E49BBD39EAC6950D3E49 /* RecentFilesMenuTemplate.nib in Resources */ = {isa = PBXBuildFile; fileRef = 73CE293FF94CD32FDA516359 /* RecentFilesMenuTemplate.nib */; };
 		4D846A0BE194EFA449E581BD /* juce_video.mm in Sources */ = {isa = PBXBuildFile; fileRef = 337674C3EF005188363F0A7C /* juce_video.mm */; };
-		5592BBB27D3B64995D821407 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC55B8CDF20F96BDE5083BF /* QuickTime.framework */; };
 		5E1D50BED4DFE921687D5BDD /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6BFB43A253194C1341C839F /* QTKit.framework */; };
 		6B670D1B644142823AC710A5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB9CC2F201DF2DF84D8398D /* Carbon.framework */; };
 		6D71270B080342AAB0C5B483 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAC11A355116C89743FD41F /* CoreAudio.framework */; };
@@ -868,7 +867,6 @@
 		EC5CC1FE77DCE9C80F42157E /* juce_module_info */ = {isa = PBXFileReference; lastKnownFileType = text; name = juce_module_info; path = ../../JuceLibraryCode/modules/juce_events/juce_module_info; sourceTree = SOURCE_ROOT; };
 		ECB49969C5CEF9A71E1CD39D /* juce_Drawable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Drawable.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/drawables/juce_Drawable.h; sourceTree = SOURCE_ROOT; };
 		ECBD3EB8E90119F0FE6C9E54 /* juce_AnimatedPosition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_AnimatedPosition.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_AnimatedPosition.h; sourceTree = SOURCE_ROOT; };
-		ECC55B8CDF20F96BDE5083BF /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
 		ED002F301A614396FBD87B00 /* juce_ImagePreviewComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ImagePreviewComponent.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/filebrowser/juce_ImagePreviewComponent.cpp; sourceTree = SOURCE_ROOT; };
 		ED7BF7D29F6F05A63D487786 /* juce_Primes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_Primes.cpp; path = ../../JuceLibraryCode/modules/juce_cryptography/encryption/juce_Primes.cpp; sourceTree = SOURCE_ROOT; };
 		EDF30C9AB2546F81D3C14A61 /* juce_GenericAudioProcessorEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_GenericAudioProcessorEditor.h; path = ../../JuceLibraryCode/modules/juce_audio_processors/processors/juce_GenericAudioProcessorEditor.h; sourceTree = SOURCE_ROOT; };
@@ -962,7 +960,6 @@
 				9E29AB6A32F909E0F62C7BDE /* OpenGL.framework in Frameworks */,
 				5E1D50BED4DFE921687D5BDD /* QTKit.framework in Frameworks */,
 				C4EA5BE4592149D1B2FEF31E /* QuartzCore.framework in Frameworks */,
-				5592BBB27D3B64995D821407 /* QuickTime.framework in Frameworks */,
 				7D64DE14F291C3C67D88239F /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1145,7 +1142,6 @@
 				A88A0933F4FB3BFA2BFFC3C4 /* OpenGL.framework */,
 				E6BFB43A253194C1341C839F /* QTKit.framework */,
 				4AAD4D89B987B48929E47F3A /* QuartzCore.framework */,
-				ECC55B8CDF20F96BDE5083BF /* QuickTime.framework */,
 				D42AFA3863B96B5738CB652D /* WebKit.framework */,
 			);
 			name = Frameworks;

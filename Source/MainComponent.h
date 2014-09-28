@@ -17,7 +17,7 @@
     This component lives inside our window, and this is where you should put all
     your controls and content.
 */
-class MainContentComponent   : public Component, public ButtonListener
+class MainContentComponent   : public Component, public ButtonListener, public MenuBarModel
 {
 public:
     //==============================================================================
@@ -27,10 +27,21 @@ public:
     void paint (Graphics&);
     void resized();
     void buttonClicked(Button* button);
+    
+    StringArray getMenuBarNames();
+    PopupMenu getMenuForIndex (int index, const String& name);
+    void menuItemSelected (int menuID, int index);
+    
+    enum MenuIDs {
+        LabelAppleInstallPlugin = 1000,
+        LabelUninstall
+    };
+
 
 private:
     //==============================================================================
     TextButton button1;
+    MenuBarComponent menuBar;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
 };
 
