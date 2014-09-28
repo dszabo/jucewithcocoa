@@ -44,6 +44,9 @@
 		F26249BC19D8235F0054254F /* PluginInstaller.app in Resources */ = {isa = PBXBuildFile; fileRef = F262499919D8227A0054254F /* PluginInstaller.app */; };
 		F26249BF19D8243A0054254F /* NSColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F26249BE19D8243A0054254F /* NSColorExtensions.m */; };
 		F26249C219D82AB60054254F /* ImagingAppDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F26249C119D82AB60054254F /* ImagingAppDetails.m */; };
+		F2A7EBBC19D86760000DD58B /* pluginMock.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2A7EBBA19D86760000DD58B /* pluginMock.txt */; };
+		F2A7EBC019D86E7F000DD58B /* pluginMock.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2A7EBBE19D86E7F000DD58B /* pluginMock.txt */; };
+		F2A7EBC219D86EB4000DD58B /* pluginMock.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2A7EBBE19D86E7F000DD58B /* pluginMock.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -902,6 +905,8 @@
 		F26249C019D82AB60054254F /* ImagingAppDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagingAppDetails.h; sourceTree = "<group>"; };
 		F26249C119D82AB60054254F /* ImagingAppDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagingAppDetails.m; sourceTree = "<group>"; };
 		F26396D74182C129C311AC51 /* juce_TextEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_TextEditor.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/widgets/juce_TextEditor.cpp; sourceTree = SOURCE_ROOT; };
+		F2A7EBBA19D86760000DD58B /* pluginMock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pluginMock.txt; sourceTree = "<group>"; };
+		F2A7EBBE19D86E7F000DD58B /* pluginMock.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pluginMock.txt; path = ../../Source/pluginMock.txt; sourceTree = "<group>"; };
 		F3E00D9FB8839BC509C2701E /* juce_MidiKeyboardState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MidiKeyboardState.h; path = ../../JuceLibraryCode/modules/juce_audio_basics/midi/juce_MidiKeyboardState.h; sourceTree = SOURCE_ROOT; };
 		F454426E031BA8467CBDCB85 /* juce_win32_WebBrowserComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_win32_WebBrowserComponent.cpp; path = ../../JuceLibraryCode/modules/juce_gui_extra/native/juce_win32_WebBrowserComponent.cpp; sourceTree = SOURCE_ROOT; };
 		F5320B2869694D2C7616ED04 /* juce_MultiTimer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_MultiTimer.cpp; path = ../../JuceLibraryCode/modules/juce_events/timers/juce_MultiTimer.cpp; sourceTree = SOURCE_ROOT; };
@@ -1108,6 +1113,7 @@
 				A2B7A70533F733E28C970E98 /* Main.cpp */,
 				F262491A19D6B2A70054254F /* Interop.h */,
 				F262491B19D6B2B90054254F /* Interop.mm */,
+				F2A7EBBE19D86E7F000DD58B /* pluginMock.txt */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -2597,6 +2603,7 @@
 				F26249BE19D8243A0054254F /* NSColorExtensions.m */,
 				F26249C019D82AB60054254F /* ImagingAppDetails.h */,
 				F26249C119D82AB60054254F /* ImagingAppDetails.m */,
+				F2A7EBBA19D86760000DD58B /* pluginMock.txt */,
 			);
 			path = PluginInstaller;
 			sourceTree = "<group>";
@@ -2752,6 +2759,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2A7EBC219D86EB4000DD58B /* pluginMock.txt in Resources */,
 				F26249BC19D8235F0054254F /* PluginInstaller.app in Resources */,
 				45B3E49BBD39EAC6950D3E49 /* RecentFilesMenuTemplate.nib in Resources */,
 			);
@@ -2762,6 +2770,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F26249A319D8227A0054254F /* Images.xcassets in Resources */,
+				F2A7EBC019D86E7F000DD58B /* pluginMock.txt in Resources */,
+				F2A7EBBC19D86760000DD58B /* pluginMock.txt in Resources */,
 				F26249A619D8227A0054254F /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3040,6 +3050,7 @@
 				F26249B519D8227B0054254F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

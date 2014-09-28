@@ -1,11 +1,3 @@
-//
-//  AppDelegate.m
-//  PluginInstaller
-//
-//  Created by Daniel Szabo on 28/09/14.
-//
-//
-
 #import "AppDelegate.h"
 #import "ImagingAppDetails.h"
 
@@ -30,6 +22,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    
+    [installButton setEnabled:NO];
+    
     if (nil != mdQuery)
     {
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -45,6 +40,8 @@
         NSPredicate *searchPredicate = [NSPredicate
                            predicateWithFormat:@"(kMDItemCFBundleIdentifier contains[cd] %@) AND (kMDItemKind == 'Application') AND (kMDItemExecutableArchitectures == 'x86_64')",
                            @"photoshop"];
+
+
         
         [mdQuery setPredicate:searchPredicate];
         //[metadataSearch setSearchScopes: @[@"/Applications"]];  // if you want to isolate to Applications
@@ -53,9 +50,16 @@
         [mdQuery setSortDescriptors:[NSArray arrayWithObject:sortKeys]];
         // Begin the asynchronous query
         [mdQuery startQuery];
-
+        
+        NSUserDefaults *args = [NSUserDefaults standardUserDefaults];
+        pluginFileToCopy = [args stringForKey:@"pluginFileToCopy"];
+        
+        if (!pluginFileToCopy) {
+            // if we started in standalone mode, we set up our own mock file for copying
+            NSBundle *mainBundle = [NSBundle mainBundle];
+            pluginFileToCopy = [[mainBundle bundlePath] stringByAppendingPathComponent:@"Contents/Resources/pluginMock.txt"];
+        }
     }
-    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -65,17 +69,33 @@
 - (IBAction)closeClicked:(id)sender
 {
     [[NSApplication sharedApplication] terminate:nil];
+}
+
+- (IBAction)installClicked:(id)sender
+{
+
+    if ([tableView selectedRow] == -1) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Message text."];
+        [alert setInformativeText:@"Informative text."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert runModal];
+    }
     
-    /*
-     NSArray *arguments = [[NSProcessInfo processInfo] arguments];
-     NSMutableString *mutableStr = [NSMutableString stringWithCapacity:0];
-     for (int i=0; i< [arguments count]; i++)
-     {
-     NSString *str = [NSString stringWithFormat:@"%@\n", [arguments objectAtIndex:i]];
-     [mutableStr appendString:str];
-     }
-     [label setStringValue: mutableStr];
-     */
+    ImagingAppDetails *selectedApp = [imagingApps objectAtIndex:[tableView selectedRow]];
+    
+    // wow, for photoshop the Plug-ins folder is at psd.app/../Plug-ins so...
+    NSString *pluginPath = [[[selectedApp appBundlePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Plug-ins"];
+    
+    // copy pluginFileToCopy to pluginPath
+    [self copyFolderAtPath:pluginFileToCopy toDestinationFolderAtPath:pluginPath];
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Plugin installer"];
+    [alert setInformativeText:@"Plugin installed successfully."];
+    [alert setAlertStyle:NSInformationalAlertStyle];
+    [alert runModal];
+    
 }
 
 // Method invoked when notifications of content batches have been received
@@ -93,6 +113,7 @@
     // Process the content. In this case the application simply
     // iterates over the content, printing the display name key for
     // each image
+    
     NSUInteger i=0;
     for (i=0; i < [mdQuery resultCount]; i++) {
         NSMetadataItem *theResult = [mdQuery resultAtIndex:i];
@@ -104,7 +125,6 @@
         [d setAppBundleInfoDictionary:[bundle infoDictionary]];
         
         [imagingApps addObject:d];
-         NSLog(@"Bundle Id: %@; Bundle Path: %@", [d appBundleIdentifier], [d appBundlePath]);
     }
     
     // Remove the notifications to clean up after ourselves.
@@ -119,7 +139,6 @@
     
     [labelFindApps setStringValue: [NSString stringWithFormat:@"Looking for Image manipulation applications: Found %ld Apps", [mdQuery resultCount]]];
     
-    //ImagingAppDetails *d = [[ImagingAppDetails alloc] initWithBundlePath:@"" bundleIdentifier:@""];
     [tableView reloadData];
     
 }
@@ -131,15 +150,44 @@
 - (id)tableView:(NSTableView *)tv objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     ImagingAppDetails *item = [imagingApps objectAtIndex:row];
-    if ([[tableColumn identifier] isEqualToString:@"Id"]) {
-        return [item appBundleIdentifier];
-    }
-    
+
     if ([[tableColumn identifier] isEqualToString:@"Path"]) {
         return [item appBundlePath];
     }
 
+    if ([[tableColumn identifier] isEqualToString:@"Id"]) {
+        return [item appBundleIdentifier];
+    }
+
+    if ([[tableColumn identifier] isEqualToString:@"Version"]) {
+        return [[item appBundleInfoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    }
+    
     return nil;
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
+{
+    if ([tableView selectedRow] == -1) {
+        [installButton setEnabled:NO];
+    } else {
+        [installButton setEnabled:YES];
+    }
+}
+
+- (BOOL)copyFolderAtPath:(NSString *)sourceFile toDestinationFolderAtPath:(NSString*)destinationFolder {
+    NSFileManager * fileManager = [ NSFileManager defaultManager];
+    NSError * error = nil;
+
+    NSString* sourceFileName = [sourceFile lastPathComponent];
+    NSString *dstFile = [destinationFolder stringByAppendingPathComponent:sourceFileName];
+    
+    if ( !( [ fileManager copyItemAtPath:sourceFile toPath:dstFile error:&error ]) )
+    {
+        NSLog(@"Could not copy report at path %@ to path %@. error %@",sourceFile, destinationFolder, error);
+        return NO;
+    }
+    return YES;
 }
 
 

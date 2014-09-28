@@ -30,7 +30,10 @@ void NSInterop::launchHelper()
     
     NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
     
-    NSArray *arguments = [NSArray arrayWithObjects:@"Argument1", @"Argument2", nil];
+    NSString *pluginFileToCopy = [[mainBundle bundlePath]
+                                  stringByAppendingPathComponent:@"/Contents/Resources/pluginMock.txt"];
+    NSArray *arguments = [NSArray arrayWithObjects:@"-pluginFileToCopy", pluginFileToCopy, nil];
+
     [workspace launchApplicationAtURL:url options:0 configuration:[NSDictionary dictionaryWithObject:arguments forKey:NSWorkspaceLaunchConfigurationArguments] error:nil];
     
     NSArray* apps = [NSRunningApplication
