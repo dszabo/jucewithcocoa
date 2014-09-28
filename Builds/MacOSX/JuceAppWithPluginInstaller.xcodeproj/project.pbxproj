@@ -43,6 +43,7 @@
 		F26249A619D8227A0054254F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F26249A419D8227A0054254F /* MainMenu.xib */; };
 		F26249BC19D8235F0054254F /* PluginInstaller.app in Resources */ = {isa = PBXBuildFile; fileRef = F262499919D8227A0054254F /* PluginInstaller.app */; };
 		F26249BF19D8243A0054254F /* NSColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F26249BE19D8243A0054254F /* NSColorExtensions.m */; };
+		F26249C219D82AB60054254F /* ImagingAppDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = F26249C119D82AB60054254F /* ImagingAppDetails.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -898,6 +899,8 @@
 		F26249A519D8227A0054254F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F26249BD19D8243A0054254F /* NSColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSColorExtensions.h; sourceTree = "<group>"; };
 		F26249BE19D8243A0054254F /* NSColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSColorExtensions.m; sourceTree = "<group>"; };
+		F26249C019D82AB60054254F /* ImagingAppDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagingAppDetails.h; sourceTree = "<group>"; };
+		F26249C119D82AB60054254F /* ImagingAppDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagingAppDetails.m; sourceTree = "<group>"; };
 		F26396D74182C129C311AC51 /* juce_TextEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_TextEditor.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/widgets/juce_TextEditor.cpp; sourceTree = SOURCE_ROOT; };
 		F3E00D9FB8839BC509C2701E /* juce_MidiKeyboardState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MidiKeyboardState.h; path = ../../JuceLibraryCode/modules/juce_audio_basics/midi/juce_MidiKeyboardState.h; sourceTree = SOURCE_ROOT; };
 		F454426E031BA8467CBDCB85 /* juce_win32_WebBrowserComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_win32_WebBrowserComponent.cpp; path = ../../JuceLibraryCode/modules/juce_gui_extra/native/juce_win32_WebBrowserComponent.cpp; sourceTree = SOURCE_ROOT; };
@@ -2592,6 +2595,8 @@
 				F262499B19D8227A0054254F /* Supporting Files */,
 				F26249BD19D8243A0054254F /* NSColorExtensions.h */,
 				F26249BE19D8243A0054254F /* NSColorExtensions.m */,
+				F26249C019D82AB60054254F /* ImagingAppDetails.h */,
+				F26249C119D82AB60054254F /* ImagingAppDetails.m */,
 			);
 			path = PluginInstaller;
 			sourceTree = "<group>";
@@ -2792,6 +2797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F26249A119D8227A0054254F /* AppDelegate.m in Sources */,
+				F26249C219D82AB60054254F /* ImagingAppDetails.m in Sources */,
 				F26249BF19D8243A0054254F /* NSColorExtensions.m in Sources */,
 				F262499E19D8227A0054254F /* main.m in Sources */,
 			);

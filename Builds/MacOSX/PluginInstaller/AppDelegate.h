@@ -11,7 +11,11 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
     IBOutlet NSButton* closeButton;
-    IBOutlet NSTextField *label;
+    IBOutlet NSTextField *labelFindApps;
+    
+    __weak IBOutlet NSTableView *tableView;
+    NSMetadataQuery *mdQuery;
+    NSMutableArray *imagingApps;
 }
 
 - (IBAction)closeClicked:(id)sender;
